@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Cliente - Baozi Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/form-menu-cadastro.css">
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="cabecalho">
+        <h1 class="logo">Baozi <span class="destaque">Store</span></h1>
+    </header>
+
+    <main class="container-form">
+        <section class="card">
+            <div class="card-header texto-centro">
+                <h2>Cadastrar Cliente</h2>
+                <p>Preencha os dados abaixo para registrar o novo cliente.</p>
+            </div>
+            
+            <form th:action="$cliente.id ==null} ? @{cadastrar-cliente/salvar} : @{cliente-editar}" th:object="${cliente}" method="POST" >
+            
+            <input type="hidden" th:field="{id}">   
+                
+                
+                <div class="input-group">
+                    <label for="nome">Nome do Cliente</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: Addams Carvalho" required th:field="*{nome}">
+                </div>
+
+                <div class="input-group">
+                    <label for="clienteDesde">Cliente Desde</label>
+                    <input type="date" id="clienteDesde" name="clienteDesde" required th:field="*{clienteDesde}">
+                </div>
+
+                <div class="acoes form-acoes">
+                    <a th:href="@{/}" class="btn btn-secundario text-center" style="text-decoration: none; display: flex; justify-content: center; align-items: center;">Voltar</a>
+                    <button type="submit" class="btn btn-primario">Salvar Cliente</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

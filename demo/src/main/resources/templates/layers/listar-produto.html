@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos - Baozi Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/listas-cadastros.css">
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="cabecalho">
+        <h1 class="logo">Baozi <span class="destaque">Store</span></h1>
+    </header>
+
+    <main class="container-list">
+        <section class="card">
+        	 <div class="acoes form-acoes mt-4">
+                <a th:href="@{/}" class="btn btn-secundario text-center" style="text-decoration: none;  width: 190px; display: block; margin-bottom: 25px;">Voltar para o Início</a>
+            </div>
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div>
+                    <h2>Produtos Cadastrados</h2>
+                    <p>Estoque de produtos da loja.</p>
+                </div>
+                
+            </div>
+            
+            <div class="table-responsive">
+                <table class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Preço (R$)</th>
+                            <th>Estoque</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="produto : ${produtos}">
+                            <td th:text="${produto.id}">1</td>
+                            <td th:text="${produto.nome}">Pão Chinês</td>
+                            <td th:text="${produto.preco}">8.50</td>
+                            <td th:text="${produto.estoque ? 'Sim' : 'Não'}">Sim</td>
+                            <td>
+                                <form th:action="@{/produtos/deletar/{id}(id=${produto.id})}" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn-acao btn-excluir">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(produtos)}">
+                            <td colspan="5" class="text-center text-muted py-4">Nenhum produto cadastrado.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+           
+        </section>
+    </main>
+
+</body>
+</html>

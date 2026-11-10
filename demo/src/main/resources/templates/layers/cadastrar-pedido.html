@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Pedido
+Baozi Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/form-menu-cadastro.css">
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="cabecalho">
+        <h1 class="logo">Baozi <span class="destaque">Store</span></h1>
+    </header>
+
+    <main class="container-form">
+        <section class="card">
+            <div class="card-header texto-centro">
+                <h2>Registrar Pedido</h2>
+                <p>Vincule um cliente a um produto para registrar a venda.</p>
+            </div>
+            
+            <form action="/cadastrar-pedido/salvar" method="POST">
+                <div class="input-group">
+                    <label for="clienteId">ID do Cliente</label>
+                    <input type="number" id="clienteId" name="clienteId" placeholder="Ex: 1" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="produtoId">ID do Produto</label>
+                    <input type="number" id="produtoId" name="produtoId" placeholder="Ex: 3" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="quantidade">Quantidade do Produto</label>
+                    <input type="number" id="quantidade" name="quantidade" placeholder="Ex: 5" required>
+                </div>
+
+                <div class="acoes form-acoes">
+                    <a th:href="@{/}" class="btn btn-secundario text-center" style="text-decoration: none; display: flex; justify-content: center; align-items: center;">Voltar</a>
+                    <button type="submit" class="btn btn-primario">Salvar Pedido</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

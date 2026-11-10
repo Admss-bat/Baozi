@@ -1,0 +1,166 @@
+/* Reset básico e integração com Bootstrap */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif !important;
+    background-color: #f8fafc;
+    color: #0f172a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Cabeçalho e Logo */
+.cabecalho {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: #0f172a;
+    margin-bottom: 0;
+}
+
+.logo .destaque {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Container do Formulário */
+.container-form {
+    width: 100%;
+    max-width: 500px;
+    padding: 0 2rem;
+    margin-bottom: 4rem;
+}
+
+/* Estilo do Cartão */
+.card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+}
+
+.texto-centro {
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-header p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+/* Estilização dos Campos do Formulário */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #334155;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input, 
+.input-group select {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    color: #0f172a;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    width: 100%;
+    appearance: none; 
+}
+
+/* Customizando a seta do select */
+.input-group select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem top 50%;
+    background-size: 0.65rem auto;
+}
+
+/* Efeito ao focar no campo */
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #ff7e5f;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 126, 95, 0.15);
+}
+
+.input-group input::placeholder {
+    color: #94a3b8;
+}
+
+/* Botões do Formulário */
+.acoes {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-acoes {
+    margin-top: 2.5rem;
+}
+
+.btn {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-primario {
+    background-color: #0f172a;
+    color: #ffffff;
+}
+
+.btn-primario:hover {
+    background-color: #1e293b;
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background-color: #f1f5f9;
+    color: #334155;
+}
+
+.btn-secundario:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+    transform: translateY(-2px);
+}

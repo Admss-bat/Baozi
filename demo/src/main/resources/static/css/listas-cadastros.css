@@ -1,0 +1,164 @@
+/* Reset básico e integração com Bootstrap */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif !important;
+    background-color: #f8fafc;
+    color: #0f172a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Cabeçalho e Logo */
+.cabecalho {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: #0f172a;
+    margin-bottom: 0;
+}
+
+.logo .destaque {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Container da Lista */
+.container-list {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 2rem;
+    margin-bottom: 4rem;
+}
+
+/* Deixa o container um pouco mais largo na página "Visualizar Tudo" para melhor leitura */
+.container-tudo {
+    max-width: 1100px;
+}
+
+/* Estilo do Cartão principal */
+.card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+}
+
+/* Espaçamento para quando há vários cards empilhados (Página de Visualizar Tudo) */
+.mb-4 {
+    margin-bottom: 2rem !important;
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.card-header p {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-bottom: 0;
+}
+
+/* Customização da Tabela Bootstrap */
+.custom-table {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    color: #334155;
+}
+
+.custom-table thead th {
+    border-bottom: 2px solid #e2e8f0;
+    font-weight: 600;
+    color: #0f172a;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-bottom: 1rem;
+}
+
+.custom-table tbody td {
+    padding: 1rem 0.5rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.custom-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Botões gerais */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-primario {
+    background-color: #0f172a;
+    color: #ffffff;
+}
+
+.btn-primario:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background-color: #f1f5f9;
+    color: #334155;
+}
+
+.btn-secundario:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+/* Botões de Ação na Tabela (Excluir) */
+.btn-acao {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-excluir {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.btn-excluir:hover {
+    background-color: #fca5a5;
+    color: #991b1b;
+}
