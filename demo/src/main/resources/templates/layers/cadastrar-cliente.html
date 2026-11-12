@@ -23,7 +23,7 @@
                 <p>Preencha os dados abaixo para registrar o novo cliente.</p>
             </div>
             
-            <form th:action="$cliente.id ==null} ? @{cadastrar-cliente/salvar} : @{cliente-editar}" th:object="${cliente}" method="POST" >
+            <form th:action="$cliente.id == null} ? @{cadastrar-cliente/salvar} : @{cliente-editar}" th:object="${cliente}" method="POST" >
             
             <input type="hidden" th:field="{id}">   
                 
