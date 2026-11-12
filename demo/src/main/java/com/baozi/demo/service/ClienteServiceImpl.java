@@ -53,16 +53,6 @@ public class ClienteServiceImpl implements ClienteService {
 		return dao.findAll();
 	}
 
-	@Override
-	public void salvar(Cliente cliente) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void editar(Cliente cliente) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

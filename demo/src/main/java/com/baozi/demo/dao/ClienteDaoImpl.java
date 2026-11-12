@@ -5,6 +5,6 @@ import com.baozi.demo.entity.Cliente;
 
 
 @Repository
-public class ClienteDaoImpl extends AbsrtactDao<Cliente, Long> implements ClienteDao{
+public class ClienteDaoImpl extends AbstractDao<Cliente, Long> implements ClienteDao{
 
 }
