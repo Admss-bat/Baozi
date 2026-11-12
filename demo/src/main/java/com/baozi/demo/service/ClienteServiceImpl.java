@@ -4,10 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.baozi.demo.dao.ClienteDao;
 import com.baozi.demo.entity.Cliente;
-
 import org.springframework.transaction.annotation.Transactional;
 
 @Service

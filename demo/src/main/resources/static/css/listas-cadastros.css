@@ -162,3 +162,14 @@ body {
     background-color: #fca5a5;
     color: #991b1b;
 }
+
+.btn-editar {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+
+.btn-editar:hover {
+    background-color: #fca5a5;
+    color: #991b1b;
+}

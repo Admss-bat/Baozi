@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Pedido
-Baozi Store</title>
+    <title>Cadastrar Pedido - Baozi Store</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="all" href="../../css/form-menu-cadastro.css">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/form-menu-cadastro.css}">
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -24,20 +23,23 @@ Baozi Store</title>
                 <p>Vincule um cliente a um produto para registrar a venda.</p>
             </div>
             
-            <form action="/cadastrar-pedido/salvar" method="POST">
+            <form th:action="${pedido.id == null} ? @{/layers/cadastrar-pedido/salvar} : @{/layers/cadastrar-pedido/editar}" th:object="${pedido}" method="POST">
+               
+               <input type="hidden" th:field="*{id}"> 
+                
                 <div class="input-group">
                     <label for="clienteId">ID do Cliente</label>
-                    <input type="number" id="clienteId" name="clienteId" placeholder="Ex: 1" required>
+                    <input type="number" id="clienteId" name="clienteId" placeholder="Ex: 1" required th:field="*{clienteId}">
                 </div>
 
                 <div class="input-group">
                     <label for="produtoId">ID do Produto</label>
-                    <input type="number" id="produtoId" name="produtoId" placeholder="Ex: 3" required>
+                    <input type="number" id="produtoId" name="produtoId" placeholder="Ex: 3" required th:field="*{produtoId}">
                 </div>
 
                 <div class="input-group">
                     <label for="quantidade">Quantidade do Produto</label>
-                    <input type="number" id="quantidade" name="quantidade" placeholder="Ex: 5" required>
+                    <input type="number" id="quantidade" name="quantidade" placeholder="Ex: 5" required th:field="*{quantidade}">
                 </div>
 
                 <div class="acoes form-acoes">

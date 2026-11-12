@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="all" href="../../css/listas-cadastros.css">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/listas-cadastros.css}">
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -40,19 +40,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="cliente : ${clientes}">
+                        <tr th:each="cliente : ${cliente}">
                             <td th:text="${cliente.id}">1</td>
                             <td th:text="${cliente.nome}">Exemplo Nome</td>
-                            <td th:text="${cliente.clienteDesde}">2026-11-06</td>
+                            <td th:text="${#temporals.format(cliente.clienteDesde, 'dd/MM/yy')}" >06-11-2026</td>
                             <td>
                                 <!-- Formulário para exclusão chamando o endpoint DELETE/POST -->
-                                <form th:action="@{/clientes/deletar/{id}(id=${cliente.id})}" method="POST" style="display:inline;">
+                                <form th:action="@{/layers/cliente/excluir/{id}(id=${cliente.id})}" method="GET" style="display:inline;" onclick="return confirm('Você tem certeza?')">
                                     <button type="submit" class="btn-acao btn-excluir">Excluir</button>
+                                </form>
+                                <!-- Formulário para edição chamando o endpoint cliente/editar -->
+                                <form th:action="@{/layers/cadastrar-cliente/editar/{id}(id=${cliente.id})}" method="GET" style="display:inline;">
+                                    <button type="submit" class="btn-acao btn-editar">Editar</button>
                                 </form>
                             </td>
                         </tr>
                         <!-- Mensagem caso a lista esteja vazia -->
-                        <tr th:if="${#lists.isEmpty(clientes)}">
+                        <tr th:if="${#lists.isEmpty(cliente)}">
                             <td colspan="4" class="text-center text-muted py-4">Nenhum cliente cadastrado.</td>
                         </tr>
                     </tbody>

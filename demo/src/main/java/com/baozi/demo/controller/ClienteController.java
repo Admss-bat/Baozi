@@ -31,7 +31,7 @@ public class ClienteController {
 	public String salvarCliente(Cliente cliente) {
 		
 		service.salvar(cliente);
-		return ("layers/listar-cliente"); 
+		return "redirect:/layers/listar-clientes"; 
 		
 	}
 	
@@ -46,11 +46,11 @@ public class ClienteController {
 	}
 	
 	
-	@PostMapping("/cliente/editar")
+	@PostMapping("/cadastrar-cliente/editar")
 	public String editar(Cliente cliente) {
 		
 		service.editar(cliente);
-		return ("layers/listar-cliente");
+		return ("redirect:/layers/listar-clientes"); 
 		
 	}
 	
@@ -62,7 +62,7 @@ public class ClienteController {
 		
 	}
 	
-	@GetMapping("/cliente/editar/{id}")
+	@GetMapping("/cadastrar-cliente/editar/{id}")
 	public String editar(@PathVariable("id") Long id, ModelMap model) {
 		
 		model.addAttribute("cliente", service.buscarPorId(id));

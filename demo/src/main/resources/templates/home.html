@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="all" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}">
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -37,7 +37,7 @@
             </div>
             <div class="acoes">
                 <a th:href="@{layers/cadastrar-produto}"><button class="btn btn-primario">Cadastrar</button></a>
-                <a th:href="@{layers/listar-produto}"><button class="btn btn-secundario">Consultar</button></a>
+                <a th:href="@{layers/listar-produtos}"><button class="btn btn-secundario">Consultar</button></a>
             </div>
         </section>
 
@@ -49,7 +49,7 @@
             </div>
             <div class="acoes">
                 <a th:href="@{layers/cadastrar-pedido}"><button class="btn btn-primario">Cadastrar</button></a>
-                <a th:href="@{layers/listar-pedido}"><button class="btn btn-secundario">Consultar</button></a>
+                <a th:href="@{layers/listar-pedidos}"><button class="btn btn-secundario">Consultar</button></a>
             </div>
         </section>
 
