@@ -19,7 +19,7 @@
     <main class="container-list">
         <section class="card">
         	 <div class="acoes form-acoes mt-4">
-                <a th:href="@{/}" class="btn btn-secundario text-center" style="text-decoration: none;  width: 190px; display: block; margin-bottom: 25px;">Voltar para o Início</a>
+                <a th:href="@{/}" class="btn btn-secundario text-center" style="text-decoration: none;  width: 205px; display: block; margin-bottom: 25px;">← Voltar para o Início</a>
             </div>
             <div class="card-header d-flex justify-content-between align-items-center">
                 <div>
@@ -56,7 +56,7 @@
                                 </form>
                             </td>
                         </tr>
-                        <tr th:if="${#lists.isEmpty(produtos)}">
+                        <tr th:if="${#lists.isEmpty(produto)}">
                             <td colspan="5" class="text-center text-muted py-4">Nenhum produto cadastrado.</td>
                         </tr>
                     </tbody>

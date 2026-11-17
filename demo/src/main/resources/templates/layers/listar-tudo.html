@@ -7,30 +7,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/listas-cadastros.css}">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/listar-tudo.css}">
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
 
-    <header class="cabecalho">
-        <h1 class="logo">Baozi <span class="destaque">Store</span></h1>
+    <header class="cabecalho-dashboard">
+        <div class="topo-flex">
+            <a th:href="@{/}" class="btn btn-secundario btn-voltar">← Voltar para o Início</a>
+            <h1 class="logo">Baozi <span class="destaque">Store</span></h1>
+            <div class="espaco-equilibrio"></div>
+        </div>
     </header>
 
-    <main class="container-list container-tudo">
+    <main class="bento-grid">
         
-        <!-- CARD 1: CLIENTES -->
-        <section class="card mb-4">
-        	 <div class="acoes form-acoes mt-2">
-            <a th:href="@{/}" class="btn btn-secundario text-center" style="text-decoration: none; width: 190px; display: block; margin-bottom: 25px;">Voltar para o Início</a>
-        </div>
-            <div class="card-header d-flex justify-content-between align-items-center">
+        <!-- BALÃO 1: CLIENTES (Topo Esquerda) -->
+        <section class="card card-fixed">
+            <div class="card-header-compact">
                 <div>
                     <h2>Clientes</h2>
                     <p>Consumidores cadastrados no sistema.</p>
                 </div>
             </div>
             
-            <div class="table-responsive">
+            <div class="scroll-area">
                 <table class="table custom-table">
                     <thead>
                         <tr>
@@ -49,26 +50,29 @@
                                 <form th:action="@{/clientes/deletar/{id}(id=${cliente.id})}" method="POST" style="display:inline;">
                                     <button type="submit" class="btn-acao btn-excluir">Excluir</button>
                                 </form>
+                                <form th:action="@{/layers/cadastrar-cliente/editar/{id}(id=${cliente.id})}" method="GET" style="display:inline;">
+                                    <button type="submit" class="btn-acao btn-editar">Editar</button>
+                                </form>
                             </td>
                         </tr>
                         <tr th:if="${#lists.isEmpty(clientes)}">
-                            <td colspan="4" class="text-center text-muted py-3">Nenhum cliente cadastrado.</td>
+                            <td colspan="4" class="text-center text-muted py-4">Nenhum cliente cadastrado.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- CARD 2: PRODUTOS -->
-        <section class="card mb-4">
-            <div class="card-header d-flex justify-content-between align-items-center">
+        <!-- BALÃO 2: PRODUTOS (Topo Direita) -->
+        <section class="card card-fixed">
+            <div class="card-header-compact">
                 <div>
                     <h2>Produtos</h2>
                     <p>Cardápio e itens disponíveis.</p>
                 </div>
             </div>
             
-            <div class="table-responsive">
+            <div class="scroll-area">
                 <table class="table custom-table">
                     <thead>
                         <tr>
@@ -89,26 +93,29 @@
                                 <form th:action="@{/produtos/deletar/{id}(id=${produto.id})}" method="POST" style="display:inline;">
                                     <button type="submit" class="btn-acao btn-excluir">Excluir</button>
                                 </form>
+                                <form th:action="@{/layers/cadastrar-produto/editar/{id}(id=${produto.id})}" method="GET" style="display:inline;">
+                                    <button type="submit" class="btn-acao btn-editar">Editar</button>
+                                </form>
                             </td>
                         </tr>
                         <tr th:if="${#lists.isEmpty(produtos)}">
-                            <td colspan="5" class="text-center text-muted py-3">Nenhum produto cadastrado.</td>
+                            <td colspan="5" class="text-center text-muted py-4">Nenhum produto cadastrado.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- CARD 3: PEDIDOS -->
-        <section class="card mb-4">
-            <div class="card-header d-flex justify-content-between align-items-center">
+        <!-- BALÃO 3: PEDIDOS (Base Larga - Ocupa as 2 colunas) -->
+        <section class="card card-fixed card-largo">
+            <div class="card-header-compact">
                 <div>
                     <h2>Pedidos</h2>
                     <p>Histórico de vendas registradas.</p>
                 </div>
             </div>
             
-            <div class="table-responsive">
+            <div class="scroll-area">
                 <table class="table custom-table">
                     <thead>
                         <tr>
@@ -129,18 +136,18 @@
                                 <form th:action="@{/pedidos/deletar/{id}(id=${pedido.id})}" method="POST" style="display:inline;">
                                     <button type="submit" class="btn-acao btn-excluir">Excluir</button>
                                 </form>
+                                <form th:action="@{/layers/cadastrar-pedido/editar/{id}(id=${pedido.id})}" method="GET" style="display:inline;">
+                                    <button type="submit" class="btn-acao btn-editar">Editar</button>
+                                </form>
                             </td>
                         </tr>
                         <tr th:if="${#lists.isEmpty(pedidos)}">
-                            <td colspan="5" class="text-center text-muted py-3">Nenhum pedido registrado.</td>
+                            <td colspan="5" class="text-center text-muted py-4">Nenhum pedido registrado.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
-
-        
-       
 
     </main>
 

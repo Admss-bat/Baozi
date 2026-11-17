@@ -41,7 +41,7 @@ body {
 /* Container da Lista */
 .container-list {
     width: 100%;
-    max-width: 900px;
+    max-width: 950px;
     padding: 0 2rem;
     margin-bottom: 4rem;
 }
@@ -60,7 +60,7 @@ body {
     border: 1px solid #f1f5f9;
 }
 
-/* Espaçamento para quando há vários cards empilhados (Página de Visualizar Tudo) */
+/* Espaçamento para quando há vários cards empilhados */
 .mb-4 {
     margin-bottom: 2rem !important;
 }
@@ -82,23 +82,41 @@ body {
     margin-top: 1.5rem;
     margin-bottom: 0;
     color: #334155;
+    width: 100%;
 }
 
 .custom-table thead th {
     border-bottom: 2px solid #e2e8f0;
     font-weight: 600;
     color: #0f172a;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    padding-bottom: 1rem;
+    padding: 0.75rem 1.25rem 1rem 1.25rem; /* Colunas mais distantes */
+    text-align: center; /* Centraliza cabeçalhos */
+    white-space: nowrap;
 }
 
 .custom-table tbody td {
-    padding: 1rem 0.5rem;
+    padding: 1rem 1.25rem; /* Colunas mais distantes */
     vertical-align: middle;
     border-bottom: 1px solid #f1f5f9;
     font-size: 0.95rem;
+    text-align: center; /* Centraliza valores */
+}
+
+/* Mantém a 2ª coluna (Nome) à esquerda nas tabelas que não são de Pedidos */
+.custom-table:not(.tabela-pedidos) thead th:nth-child(2),
+.custom-table:not(.tabela-pedidos) tbody td:nth-child(2) {
+    text-align: left;
+}
+
+/* Garante que a coluna de Ações fique alinhada ao centro e os botões lado a lado */
+.custom-table thead th:last-child,
+.custom-table tbody td:last-child {
+    white-space: nowrap;
+    text-align: center;
+    width: 1%;
 }
 
 .custom-table tbody tr:hover {
@@ -142,8 +160,9 @@ body {
     color: #0f172a;
 }
 
-/* Botões de Ação na Tabela (Excluir) */
+/* Estilo Base dos Botões de Ação na Tabela */
 .btn-acao {
+    display: inline-block;
     padding: 0.4rem 0.8rem;
     border-radius: 6px;
     font-size: 0.8rem;
@@ -151,8 +170,10 @@ body {
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
+    text-decoration: none;
 }
 
+/* Botão Excluir (Vermelho Suave) */
 .btn-excluir {
     background-color: #fee2e2;
     color: #b91c1c;
@@ -163,13 +184,14 @@ body {
     color: #991b1b;
 }
 
+/* Botão Editar (Azul Suave - Mesmo estilo do Excluir) */
 .btn-editar {
-    background-color: #fee2e2;
-    color: #b91c1c;
+    background-color: #e0f2fe;
+    color: #0369a1;
+    margin-left: 0.35rem;
 }
 
-
 .btn-editar:hover {
-    background-color: #fca5a5;
-    color: #991b1b;
+    background-color: #bae6fd;
+    color: #075985;
 }

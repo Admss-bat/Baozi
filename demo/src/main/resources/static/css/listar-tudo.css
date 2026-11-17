@@ -1,0 +1,243 @@
+/* Reset básico e integração com Bootstrap */
+/* Reset básico e integração com Bootstrap */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif !important;
+    background-color: #f8fafc;
+    color: #0f172a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Cabeçalho compacto do Dashboard */
+.cabecalho-dashboard {
+    width: 100%;
+    max-width: 1250px;
+    padding: 2.5rem 2rem 1.5rem 2rem;
+}
+
+.topo-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.espaco-equilibrio {
+    width: 185px; /* Equilibra o botão da esquerda para manter a logo centralizada */
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: #0f172a;
+    margin-bottom: 0;
+}
+
+.logo .destaque {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Grid Bento (2 colunas em cima, 1 larga embaixo) */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1250px;
+    padding: 0 2rem 2.5rem 2rem;
+}
+
+/* Balões com tamanho padrão fixo */
+.card-fixed {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 1.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+    height: 330px; /* Altura fixa padrão para Clientes e Produtos */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Balão de Pedidos ocupando as duas colunas na base */
+.card-largo {
+    grid-column: span 2;
+    height: 310px; /* Altura fixa padrão para Pedidos */
+}
+
+.card-header-compact {
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.card-header-compact h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+    color: #0f172a;
+}
+
+.card-header-compact p {
+    font-size: 0.88rem;
+    color: #64748b;
+    margin-bottom: 0;
+}
+
+/* Área interna com barra de rolagem discreta */
+.scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 0.4rem;
+}
+
+/* Estilização moderna da barra de rolagem (Scrollbar) */
+.scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scroll-area::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.scroll-area::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Tabela com cabeçalho fixo, colunas mais distantes e centralizadas */
+.custom-table {
+    margin-bottom: 0;
+    color: #334155;
+    width: 100%;
+}
+
+.custom-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 2;
+    border-bottom: 2px solid #e2e8f0;
+    font-weight: 600;
+    color: #0f172a;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.6rem 1rem 0.85rem 1rem; /* Aumenta a distância entre colunas */
+    text-align: center; /* Centraliza os títulos por padrão */
+    white-space: nowrap;
+}
+
+.custom-table tbody td {
+    padding: 0.8rem 1rem; /* Aumenta a distância entre colunas */
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.9rem;
+    text-align: center; /* Centraliza os valores por padrão */
+}
+
+/* Mantém apenas a coluna "Nome" (2ª coluna) alinhada à esquerda em Clientes e Produtos */
+.card-fixed:not(.card-largo) .custom-table thead th:nth-child(2),
+.card-fixed:not(.card-largo) .custom-table tbody td:nth-child(2) {
+    text-align: left;
+}
+
+/* Garante que a coluna de Ações não quebre os botões em duas linhas */
+.custom-table thead th:last-child,
+.custom-table tbody td:last-child {
+    white-space: nowrap;
+    text-align: center;
+    width: 1%;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.custom-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Botões Gerais */
+.btn-voltar {
+    padding: 0.6rem 1.1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: #f1f5f9;
+    color: #334155;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.btn-voltar:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+/* Estilo Base dos Botões de Ação na Tabela */
+.btn-acao {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+/* Botão Excluir (Vermelho Suave) */
+.btn-excluir {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.btn-excluir:hover {
+    background-color: #fca5a5;
+    color: #991b1b;
+}
+
+/* Botão Editar (Azul Suave - Mesmo estilo do Excluir) */
+.btn-editar {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    margin-left: 0.35rem;
+}
+
+.btn-editar:hover {
+    background-color: #bae6fd;
+    color: #075985;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 850px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .card-largo {
+        grid-column: span 1;
+    }
+    .espaco-equilibrio {
+        display: none;
+    }
+}
