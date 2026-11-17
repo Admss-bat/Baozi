@@ -10,21 +10,15 @@ import jakarta.persistence.Table;
 
 public class Produto extends AbstractEntity<Long>{
 
-	@Column(name="ID do Produto", nullable = false)
-	Long id;
 	@Column(name="Nome do Produto", nullable = false,  length=50)
-	String nome;
+	private String nome;
 	@Column(name="Preço do Produto", nullable = false)
-	BigDecimal preco;
+	private BigDecimal preco;
 	@Column(name="Disponível em Estoque?", nullable = false)
-	Boolean estoque;
+	private Boolean estoque;
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
+	
+	
 	public String getNome() {
 		return nome;
 	}

@@ -1,7 +1,5 @@
 package com.baozi.demo.entity;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -10,14 +8,16 @@ import jakarta.persistence.Table;
 @Table(name="PEDIDO")
 public class Pedido extends AbstractEntity<Long>{
 	
+	
+
 	@Column(name="ID do Cliente", nullable = false)
-	Long clienteId;
+	private Long clienteId;
 	
-	@Column(name="ID do Pedido", nullable = false, unique=true)
-	Long produtoId;
+	@Column(name="ID do Produto", nullable = false)
+	private Long produtoId;
 	
-	@Column(name="Quantidade", nullable = false, unique=true, length=50)
-	Integer quantidade;
+	@Column(name="Quantidade", nullable = false)
+	private Integer quantidade;
 	
 	public Long getClienteId() {
         return clienteId;

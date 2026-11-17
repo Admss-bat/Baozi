@@ -11,6 +11,8 @@ import jakarta.persistence.Table;
 @Table(name="CLIENTE")
 public class Cliente extends AbstractEntity<Long>{
 	
+	
+
 	@Column(name="Nome", nullable = false, unique=true, length=50)
 	private String nome;
 	
