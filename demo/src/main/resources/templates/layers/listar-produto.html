@@ -41,7 +41,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="produto : ${produtos}">
+                        <tr th:each="produto : ${produto}">
                             <td th:text="${produto.id}">1</td>
                             <td th:text="${produto.nome}">Pão Chinês</td>
                             <td th:text="${produto.preco}">8.50</td>
@@ -49,6 +49,10 @@
                             <td>
                                 <form th:action="@{/produtos/deletar/{id}(id=${produto.id})}" method="POST" style="display:inline;">
                                     <button type="submit" class="btn-acao btn-excluir">Excluir</button>
+                                </form>
+                                <!-- Formulário para edição chamando o endpoint cliente/editar -->
+                                <form th:action="@{/layers/cadastrar-produto/editar/{id}(id=${produto.id})}" method="GET" style="display:inline;">
+                                    <button type="submit" class="btn-acao btn-editar">Editar</button>
                                 </form>
                             </td>
                         </tr>
